@@ -17,12 +17,28 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool isloading = false;
+
   // String temperature = " 24";
   String temperature = "24°C";
   String pressure = "1013.25 hPa";
   String phvalue = "5.0";
   String conductivity = "50 W";
   String humidity = "60";
+
+
+  @override
+  void initState() {
+    
+    super.initState();
+  }
+
+  dataLoadFunction()async { 
+    setState(() {
+      isloading = true;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,6 +66,7 @@ class _HomePageState extends State<HomePage> {
           ),
           SafeArea(
             child: SingleChildScrollView(
+              
               scrollDirection: Axis.vertical,
               child: Column(
                 children: [
@@ -103,6 +120,26 @@ class _HomePageState extends State<HomePage> {
                         ],
                       )),
                   GraphScreen(),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  FittedBox(
+                    child: Container(
+                      color: Colors.black.withOpacity(0.5),
+                      height: 50,
+                      width: MediaQuery.of(context).size.width,
+                      child: const Center(
+                        child:  Text(
+                          "AQUA FIT",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),

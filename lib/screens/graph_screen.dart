@@ -50,7 +50,7 @@ class GraphScreen extends StatelessWidget {
           showDescription: true,
           graphColor: Colors.white,
           graphOpacity: 0.5,
-          verticalFeatureDirection: true,
+          verticalFeatureDirection: false,
           descriptionHeight: 130,
         ),
       ],
